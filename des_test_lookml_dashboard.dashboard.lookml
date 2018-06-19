@@ -19,6 +19,8 @@
     default_value: "{{ _user_attributes['email'] }}"
     allow_multiple_values: true
     required: false
+    listens_to_filters:
+    - Date Three
 
   elements:
    - name: add_a_unique_name_1529446490
