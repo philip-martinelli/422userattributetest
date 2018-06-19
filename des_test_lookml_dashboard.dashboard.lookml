@@ -12,7 +12,10 @@
     required: false
   - name: Email
     title: Email
-    type: string_filter
+    type: field_filter
+    model: thelookphiltest
+    explore: products
+    field: products.id
     default_value: "{{ _user_attributes['email'] }}"
     allow_multiple_values: true
     required: false
