@@ -67,10 +67,40 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
+#   measure: count {
+#     type: count
+#     drill_fields: [detail*]
+#   }
+
+
+  parameter: type {
+    type: string
   }
+
+  measure: count_a {
+    type: count_distinct
+    sql: ${id} ;;
+    value_format: "0"
+  }
+  measure: count_b {
+    type: count_distinct
+    sql: ${id};;
+    value_format: "0.00/%"
+  }
+
+  measure: count {
+    type: number
+    sql: case when  {% parameter type %} = 'one' then ${count_a}
+      else ${count_b} end;;
+
+    html: {% if count_a._value and users.type._value == 'one' %}
+          {{ count_a._rendered_value }}
+          {% else %}
+          {{ count_b._rendered_value }}
+          {% endif %}
+    ;;
+  }
+
 
   # ----- Sets of fields for drilling ------
   set: detail {
