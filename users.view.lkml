@@ -1,5 +1,9 @@
-view: users {
-  sql_table_name: demo_db.users ;;
+include: "/test_quinn/users.view.lkml"
+
+
+view: users_extended {
+  #sql_table_name: demo_db.users ;;
+  extends: [users]
 
   dimension: id {
     primary_key: yes
