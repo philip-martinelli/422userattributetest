@@ -81,3 +81,8 @@ explore: users {
 }
 
 explore: users_nn {}
+
+explore: orders_custom {
+  view_name: orders
+  fields: [orders.include*]
+}

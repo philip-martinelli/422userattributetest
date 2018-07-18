@@ -67,6 +67,12 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
+  dimension: latlong {
+    type: location
+    sql_latitude: rand()*100 ;;
+    sql_longitude: rand()*100 ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
