@@ -7,6 +7,11 @@ view: orders {
     sql: ${TABLE}.id ;;
   }
 
+  dimension: busted_dim {
+    type: string
+    sql: eiofanwoefa ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
@@ -35,5 +40,37 @@ view: orders {
   measure: count {
     type: count
     drill_fields: [id, users.last_name, users.first_name, users.id, order_items.count]
+  }
+
+  dimension: dropdown_with_plus {
+    type: string
+    case: {
+      when: {
+        sql: 1 = 1 ;;
+        label: "A"
+      }
+      when: {
+        sql: 2=2 ;;
+        label: "B"
+      }
+      when: {
+        sql: 3=3 ;;
+        label: "C"
+      }
+    }
+  }
+
+  dimension: dropdown_no_plus {
+    type: string
+    case: {
+      when: {
+        sql: 1 = 1 ;;
+        label: "A"
+      }
+      when: {
+        sql: 2=2 ;;
+        label: "B"
+      }
+    }
   }
 }
