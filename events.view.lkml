@@ -7,6 +7,11 @@ view: events {
     sql: ${TABLE}.id ;;
   }
 
+  measure: count_star {
+  value_format: "#,##0\"€\";(#,##0\"€\")"
+  }
+
+
   dimension_group: created {
     type: time
     timeframes: [
