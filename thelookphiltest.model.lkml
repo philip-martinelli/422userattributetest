@@ -3,8 +3,6 @@ connection: "thelook"
 # include all the views
 include: "*.view"
 
-# include all the dashboards
-include: "*.dashboard"
 
 explore: events {
   join: users {
@@ -81,3 +79,8 @@ explore: users {
 }
 
 explore: users_nn {}
+
+explore: orders_custom {
+  view_name: orders
+  fields: [orders.include*]
+}

@@ -1,5 +1,9 @@
-view: users {
-  sql_table_name: demo_db.users ;;
+include: "/test_quinn/users.view.lkml"
+
+
+view: users_extended {
+  #sql_table_name: demo_db.users ;;
+  extends: [users]
 
   dimension: id {
     primary_key: yes
@@ -65,6 +69,12 @@ view: users {
   dimension: zip {
     type: zipcode
     sql: ${TABLE}.zip ;;
+  }
+
+  dimension: latlong {
+    type: location
+    sql_latitude: rand()*100 ;;
+    sql_longitude: rand()*100 ;;
   }
 
   measure: count {
