@@ -1,6 +1,6 @@
 view: add_a_unique_name_1536744854 {
   derived_table: {
-    preserve_types: yes
+#     preserve_types: yes
     explore_source: orders {
       column: created_date {}
       column: is_complete {}
