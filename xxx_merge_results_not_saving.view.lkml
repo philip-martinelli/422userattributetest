@@ -1,4 +1,6 @@
-view: order_items {
+explore: merge_order_items {}
+
+view: merge_order_items {
   sql_table_name: demo_db.order_items ;;
 
   dimension: id {
@@ -36,11 +38,15 @@ view: order_items {
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
-    value_format: "$0.00"
   }
 
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
+  }
+
+  measure: total_sale_price {
+    type: sum
+    sql: ${sale_price} ;;
   }
 }
