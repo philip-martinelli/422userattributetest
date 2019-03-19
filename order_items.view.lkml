@@ -38,8 +38,15 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+  parameter: test {
+    type: string
+  }
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
+    link: {
+      url: "/dashboards/155?test%20param={{ _field._value | url_encode }}"
+      label: "Test"
+    }
   }
 }
