@@ -46,7 +46,7 @@ view: order_items {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
     link: {
-      url: "/dashboards/155?test%20param={{ _field._value | url_encode }}"
+      url: "/dashboards/155?test%20param={{ _field._name | url_encode }}"
       label: "Test"
     }
   }
