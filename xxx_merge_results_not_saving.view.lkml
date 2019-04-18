@@ -1,4 +1,6 @@
-view: order_items {
+explore: merge_order_items {}
+
+view: merge_order_items {
   sql_table_name: demo_db.order_items ;;
 
   dimension: id {
@@ -36,18 +38,15 @@ view: order_items {
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
-    value_format: "$0.00"
   }
 
-  parameter: test {
-    type: string
-  }
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
-    link: {
-      url: "/dashboards/155?test%20param={{ _field._name | url_encode }}"
-      label: "Test"
-    }
+  }
+
+  measure: total_sale_price {
+    type: sum
+    sql: ${sale_price} ;;
   }
 }
