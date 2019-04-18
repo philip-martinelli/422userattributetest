@@ -196,8 +196,8 @@
     col: 0
     width: 8
     height: 6
-  - title: New Tile
-    name: New Tile
+  - title: afaf
+    name: afaf
     model: thelookphiltest
     explore: order_items
     type: single_value
