@@ -39,7 +39,7 @@ view: orders {
 
   dimension: status1 {
     type: string
-    sql: ${TABLE}.status1 ;;
+    sql: ${TABLE}.status ;;
   }
 
   dimension: user_id {
