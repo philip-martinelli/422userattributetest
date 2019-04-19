@@ -37,7 +37,7 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
-  dimension: status {
+  dimension: status1 {
     type: string
     sql: ${TABLE}.status ;;
   }
