@@ -12,25 +12,29 @@ view: orders{
       value: "month"
     }
     allowed_value: {
-      label: "date"
-      value: "date"
+      label: "week"
+      value: "week"
     }
   }
 
   dimension_group: created {
     type: time
-    timeframes: [month,date]
+    timeframes: [month_name,date,week]
     sql: ${TABLE}.created_at ;;
   }
   dimension: dynamic_time {
-    sql: {% if date_param._parameter_value == "month" %}
-      ${created_month}
+    sql: {% if date_param._parameter_value == "week" %}
+      ${created_week}
       {% else %}
-      ${created_date}
+      ${created_month_name}
       {% endif %} ;;
   }
   measure: count {
     type: count
+  }
+  measure: sum {
+    type: sum
+    sql: 1 ;;
   }
 }
 
