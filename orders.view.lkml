@@ -3,7 +3,7 @@ view: orders {
 
   filter: phase {
     type: string
-    suggest_dimension: orders.status
+    suggest_dimension: orders.status1
   }
 
   parameter: geo_polygon {
@@ -37,7 +37,7 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
-  dimension: status {
+  dimension: status1 {
     type: string
     sql: ${TABLE}.status ;;
   }
@@ -50,7 +50,7 @@ view: orders {
 
   dimension: is_complete {
     type: yesno
-    sql: ${status} = 'complete' ;;
+    sql: ${status1} = 'complete' ;;
   }
 
   measure: count {
@@ -64,6 +64,6 @@ view: orders {
   }
 
   set: include {
-    fields: [id, status, is_complete, count_case_when]
+    fields: [id, status1, is_complete, count_case_when]
   }
 }
