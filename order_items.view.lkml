@@ -11,6 +11,11 @@ view: order_items {
     type: number
     # hidden: yes
     sql: ${TABLE}.inventory_item_id ;;
+    link: {
+      url: "/explore/lauren_test/order_items?fields=users.city&f[users.test]={{ _field._name | url_encode }}"
+      label: "test"
+      #       url: "/dashboards/152?test%20filter={{ _field._value | url_encode }}"
+    }
   }
 
   dimension: order_id {
@@ -40,13 +45,13 @@ view: order_items {
   }
 
   parameter: test {
-    type: string
   }
+
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
     link: {
-      url: "/dashboards/155?test%20param={{ _field._name | url_encode }}"
+      url: "/explore/thelookphiltest/order_items?fields=inventory_items.id&f[order_items.test]={{ _field._name | url_encode }}"
       label: "Test"
     }
   }
