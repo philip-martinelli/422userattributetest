@@ -100,22 +100,6 @@
       col: 8
       width: 8
       height: 6
-    - name: validator test
-      title: validator test
-      model: thelookphiltest
-      explore: order_items
-      type: table
-      fields: [orders.status, inventory_items.count, calculation_1]
-      sorts: [inventory_items.count desc]
-      limit: 5
-      dynamic_fields: [{measure: calculation_1, based_on: inventory_items.cost, type: average,
-          label: Calculation 1, expression: !!null '', value_format: !!null '', value_format_name: !!null '',
-          _kind_hint: measure, _type_hint: number}]
-      query_timezone: America/Los_Angeles
-      row: 0
-      col: 14
-      width: 10
-      height: 6
     - name: thing for dashboard
       title: thing for dashboard
       model: thelook
