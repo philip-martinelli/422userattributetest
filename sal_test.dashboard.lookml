@@ -1,5 +1,5 @@
 - dashboard: sal_test
-  title: Sal Test
+  title: Sal Test 1
   layout: tile
   tile_size: 100
 
