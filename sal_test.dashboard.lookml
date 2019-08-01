@@ -19,6 +19,27 @@
       col: 0
       width: 5
       height: 6
+    - name: add_a_unique_name_1564664105
+      title: Untitled Visualization
+      model: thelook
+      explore: orders
+      type: single_value
+      fields: [orders.id]
+      limit: 5000
+      column_limit: 50
+      query_timezone: America/Los_Angeles
+      series_types: {}
+    - name: add_a_unique_name_15646641051
+      title: Untitled Visualization
+      model: thelook
+      explore: orders
+      type: single_value
+      fields: [orders.id]
+      limit: 5000
+      column_limit: 50
+      query_timezone: America/Los_Angeles
+      series_types: {}
+
     - name: "#114317 test"
       title: "#114317 test"
       model: thelook
