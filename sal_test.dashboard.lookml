@@ -19,6 +19,19 @@
       col: 0
       width: 5
       height: 6
+    - name: test2
+      title: test1
+      model: thelook
+      explore: orders
+      type: table
+      fields: [orders.id]
+      limit: 5000
+      column_limit: 50
+      query_timezone: America/Los_Angeles
+      row: 0
+      col: 0
+      width: 5
+      height: 6
     - name: add_a_unique_name_1564664105
       title: Untitled Visualization
       model: thelook
@@ -177,7 +190,7 @@
       explore: order_items
       type: looker_column
       fields: [orders.count, orders.id]
-      limit: 500
+      limit: 5000
       query_timezone: America/Los_Angeles
       stacking: ''
       show_value_labels: false
@@ -211,7 +224,7 @@
       explore: order_items
       type: single_value
       fields: [inventory_items.count]
-      limit: 500
+      limit: 5000
       column_limit: 50
       note_state: collapsed
       note_display: below
@@ -228,7 +241,7 @@
       type: single_value
       description: asdfasdf
       fields: [inventory_items.count]
-      limit: 500
+      limit: 5000
       column_limit: 50
       custom_color_enabled: true
       custom_color: ''
