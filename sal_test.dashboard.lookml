@@ -17,7 +17,7 @@
       query_timezone: America/Los_Angeles
       row: 0
       col: 0
-      width: 14
+      width: 5
       height: 6
     - name: "#114317 test"
       title: "#114317 test"
