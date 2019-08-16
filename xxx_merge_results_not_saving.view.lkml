@@ -1,4 +1,6 @@
-view: order_items {
+explore: merge_order_items {}
+
+view: merge_order_items {
   sql_table_name: demo_db.order_items ;;
 
   dimension: id {
@@ -11,11 +13,6 @@ view: order_items {
     type: number
     # hidden: yes
     sql: ${TABLE}.inventory_item_id ;;
-    link: {
-      url: "/explore/lauren_test/order_items?fields=users.city&f[users.test]={{ _field._name | url_encode }}"
-      label: "test"
-      #       url: "/dashboards/152?test%20filter={{ _field._value | url_encode }}"
-    }
   }
 
   dimension: order_id {
@@ -41,18 +38,15 @@ view: order_items {
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
-    value_format: "$0.00"
-  }
-
-  parameter: test {
   }
 
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
-    link: {
-      url: "/explore/thelookphiltest/order_items?fields=inventory_items.id&f[order_items.test]={{ _field._name | url_encode }}"
-      label: "Test"
-    }
+  }
+
+  measure: total_sale_price {
+    type: sum
+    sql: ${sale_price} ;;
   }
 }

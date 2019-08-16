@@ -1,20 +1,13 @@
-view: orders {
+view: orders_romain {
   sql_table_name: demo_db.orders ;;
 
   filter: phase {
     type: string
-    suggest_dimension: orders.status1
+    suggest_dimension: orders.status
   }
-
-  parameter: geo_polygon {
-    default_value: ""
-    description: "Use this for filtering users based on filtering dimensions, requires this format: [[0.0], [0.0]], use geojson.io to generate a valid polygon"
-    type: string
-  }
-
-  dimension: is_last_location_in_polygon {
-    type: yesno
-     sql:  {% parameter geo_polygon %} ;;
+  dimension: testing_time_now {
+    sql: NOW() ;;
+    convert_tz: yes
   }
 
   dimension: id {
@@ -37,7 +30,7 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
-  dimension: status1 {
+  dimension: status {
     type: string
     sql: ${TABLE}.status ;;
   }
@@ -50,7 +43,7 @@ view: orders {
 
   dimension: is_complete {
     type: yesno
-    sql: ${status1} = 'complete' ;;
+    sql: ${status} = 'complete' ;;
   }
 
   measure: count {
@@ -64,6 +57,6 @@ view: orders {
   }
 
   set: include {
-    fields: [id, status1, is_complete, count_case_when]
+    fields: [id, status, is_complete, count_case_when]
   }
 }

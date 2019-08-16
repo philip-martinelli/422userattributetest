@@ -27,6 +27,11 @@ view: products {
     sql: ${TABLE}.item_name ;;
   }
 
+  dimension: backslash_category {
+    type: string
+    sql: concat(${TABLE}.category,"\\",${TABLE}.category,"\\",${TABLE}.category) ;;
+  }
+
   dimension: rank {
     type: number
     #sql: ${TABLE}.rank ;;
