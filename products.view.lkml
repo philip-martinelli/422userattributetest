@@ -29,7 +29,9 @@ view: products {
 
   dimension: rank {
     type: number
-    sql: ${TABLE}.rank ;;
+    #sql: ${TABLE}.rank ;;
+    sql: ${TABLE}.rank31513 ;;
+
   }
 
   dimension: retail_price {
