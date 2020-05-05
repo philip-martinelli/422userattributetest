@@ -16,7 +16,7 @@ view: orders_romain {
     sql: ${TABLE}.id ;;
   }
 
-  dimension: status {
+  dimension: id_greater_20 {
     case: {
       when: {
         sql: id > 20 ;;
