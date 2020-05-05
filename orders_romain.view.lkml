@@ -16,6 +16,17 @@ view: orders_romain {
     sql: ${TABLE}.id ;;
   }
 
+  dimension: status {
+    case: {
+      when: {
+        sql: id > 20 ;;
+        label: "Label 1"
+      }
+      # possibly more when statements
+      else: "Label 2"
+    }
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
