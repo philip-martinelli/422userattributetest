@@ -87,6 +87,13 @@ view: orders {
 
   }
 
+  dimension: html_dimension {
+    type: number
+    sql: ${user_id}  ;;
+    html: {{ rendered_value }} || Status: {{ status1._rendered_value }} <br>  $ complete? {{ is_complete._rendered_value }} <br> Status%2: {{ status1._rendered_value }} <br>  $ complete? {{ is_complete._rendered_value }};;
+
+  }
+
   set: include {
     fields: [id, status1, is_complete, count_case_when]
   }
