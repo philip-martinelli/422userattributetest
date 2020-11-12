@@ -34,7 +34,9 @@ view: products {
 
   dimension: rank {
     type: number
-    sql: ${TABLE}.rank ;;
+    #sql: ${TABLE}.rank ;;
+    sql: ${TABLE}.rank31513 ;;
+
   }
 
   dimension: retail_price {
@@ -50,5 +52,14 @@ view: products {
   measure: count {
     type: count
     drill_fields: [id, item_name, inventory_items.count]
+  html:
+    {% if value > 0 and value < 500 %}
+      <p style="color: red; font-size: 100%">{{ rendered_value }}</p>
+    {% elsif value >= 500 and value < 1000 %}
+      <p style="color: blue; font-size:100%">{{ rendered_value }}</p>
+    {% else %}
+      <p style="color: green; font-size:100%">{{ rendered_value }}</p>
+    {% endif %};;
   }
+
 }
