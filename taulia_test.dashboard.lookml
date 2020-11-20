@@ -3,8 +3,8 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: Taulia Test
-    name: Taulia Test
+  - title: Invoices in Scope
+    name: Invoices in Scope
     model: thelookphiltest
     explore: order_items
     type: single_value
@@ -22,12 +22,26 @@
     conditional_formatting_include_nulls: false
     single_value_title: Invoices in Scope
     defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: Count of invoices created during the period.
+    listen:
+      Payment Currency: invoice_core.supplier_payment_currency
+      Buyer Company Name: invoice_core.buyer_company_name
+      Invoice Origin: invoice_core.invoice_origin_filter
+      Buyer Business Unit: invoice_core.buyer_company_code_name
+      Supplier Status: invoice_core.supplier_status
+      Supplier Country: invoice_core.supplier_details_country
+      Supplier Name: invoice_core.supplier_details_name
+      Supplier Vendor Number: invoice_core.supplier_vendor_number
+      Invoice Date: invoice_core.inv_invoice_date
+      Supplier Industry: company.industry
     row: 0
     col: 0
     width: 5
     height: 6
-  - title: New Tile
-    name: New Tile
+  - title: "% of Invoices Received via Taulia"
+    name: "% of Invoices Received via Taulia"
     model: thelookphiltest
     explore: order_items
     type: single_value
@@ -45,12 +59,27 @@
     conditional_formatting_include_nulls: false
     single_value_title: "% Invoices Received"
     defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: 'Invoices received via any Taulia channel as a percentage of total
+      invoices created by all methods during the period. '
+    listen:
+      Payment Currency: invoice_core.supplier_payment_currency
+      Buyer Company Name: invoice_core.buyer_company_name
+      Invoice Origin: invoice_core.invoice_origin_filter
+      Buyer Business Unit: invoice_core.buyer_company_code_name
+      Supplier Status: invoice_core.supplier_status
+      Supplier Country: invoice_core.supplier_details_country
+      Supplier Name: invoice_core.supplier_details_name
+      Supplier Vendor Number: invoice_core.supplier_vendor_number
+      Invoice Date: invoice_core.inv_invoice_date
+      Supplier Industry: company.industry
     row: 0
     col: 5
     width: 5
     height: 6
-  - title: New Tile
-    name: New Tile (2)
+  - title: Suppliers Participating
+    name: Suppliers Participating
     model: thelookphiltest
     explore: order_items
     type: single_value
@@ -68,6 +97,21 @@
     conditional_formatting_include_nulls: false
     single_value_title: Suppliers Participating
     defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: 'Count of suppliers submitting at least one invoice via a Taulia channel
+      during the period.  '
+    listen:
+      Payment Currency: invoice_core.supplier_payment_currency
+      Buyer Company Name: invoice_core.buyer_company_name
+      Invoice Origin: invoice_core.invoice_origin_filter
+      Buyer Business Unit: invoice_core.buyer_company_code_name
+      Supplier Status: invoice_core.supplier_status
+      Supplier Country: invoice_core.supplier_details_country
+      Supplier Name: invoice_core.supplier_details_name
+      Supplier Vendor Number: invoice_core.supplier_vendor_number
+      Invoice Date: invoice_core.inv_invoice_date
+      Supplier Industry: company.industry
     row: 0
     col: 10
     width: 5
@@ -86,7 +130,25 @@
     hide_legend: true
     series_types: {}
     defaults_version: 1
-    listen: {}
+    note_state: collapsed
+    note_display: hover
+    note_text: Count of invoices 1. Out of Scope = invoices from suppliers who have
+      not been invited to Taulia  2. Invited but not Invoicing (Invited ERP) = Invoices
+      where supplier was invited but has not enrolled yet 3. Portal = All Invoices
+      submitted via the Taulia Portal 4. Email (eSend) = all Invoices submitted via
+      email 5. Integrated (eFile) = All Invoices submitted via EDI or other automated
+      channel
+    listen:
+      Payment Currency: invoice_core.supplier_payment_currency
+      Buyer Company Name: invoice_core.buyer_company_name
+      Invoice Origin: invoice_core.invoice_origin_filter
+      Buyer Business Unit: invoice_core.buyer_company_code_name
+      Supplier Status: invoice_core.supplier_status
+      Supplier Country: invoice_core.supplier_details_country
+      Supplier Name: invoice_core.supplier_details_name
+      Supplier Vendor Number: invoice_core.supplier_vendor_number
+      Invoice Date: invoice_core.inv_invoice_date
+      Supplier Industry: company.industry
     row: 6
     col: 3
     width: 9
