@@ -89,4 +89,16 @@ view: order_items {
     value_format_name: usd_0
   }
 
+  measure: dashboard_title {
+    type: count
+    html: <div class="vis">
+      <div class="vis-single-value" style="font-size:40px; background-image: linear-gradient(to right, #5A2FC2, #F84066); color:#ffffff">
+      <font color="#5A2FC2"><center><b>Dashboard Report Title</b>&nbsp; </font>
+      <p style="color:#ffffff;"> </p>
+      <p style="float:left; font-family: Trebuchet MS;">
+      </div>
+      </div>
+      ;;
+  }
+
 }
