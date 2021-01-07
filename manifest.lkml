@@ -5,3 +5,8 @@ project_name: "thelookphiltest"
 local_dependency: {
   project: "test_quinn"
 }
+
+localization_settings: {
+  default_locale: en
+  localization_level: permissive
+}
