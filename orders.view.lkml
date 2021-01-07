@@ -56,11 +56,42 @@ view: orders {
   measure: count {
     type: count
     drill_fields: [id, users.last_name, users.first_name, users.id, order_items.count]
-  }
+    }
 
   measure: count_case_when {
     type: count_distinct
     sql: CASE WHEN ${is_complete} THEN ${user_id} ELSE NULL END ;;
+  }
+
+  measure: id_sum {
+    type: sum
+    sql: ${id} ;;
+  }
+
+  measure: user_id_sum {
+    type: sum
+    sql: ${user_id} ;;
+  }
+
+  measure: any_promo_weeks {
+    label: "Feature Weeks"
+    type: number
+    value_format_name: decimal_2
+    sql: ${id_sum}/nullif(${user_id_sum},0) ;;
+  }
+
+  measure: html_field {
+    type: number
+    sql: 1-${count} / nullif(${count_case_when},0)  ;;
+    html: {{ rendered_value }} || Status: {{ status1._rendered_value }} <br>  $ complete? {{ is_complete._rendered_value }} <br> Status%2: {{ status1._rendered_value }} <br>  $ complete? {{ is_complete._rendered_value }};;
+
+  }
+
+  dimension: html_dimension {
+    type: number
+    sql: ${user_id}  ;;
+    html: {{ rendered_value }} || Status: {{ status1._rendered_value }} <br>  $ complete? {{ is_complete._rendered_value }} <br> Status%2: {{ status1._rendered_value }} <br>  $ complete? {{ is_complete._rendered_value }};;
+
   }
 
   set: include {
